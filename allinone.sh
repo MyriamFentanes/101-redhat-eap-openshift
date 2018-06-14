@@ -99,5 +99,4 @@ ansible-playbook -i /etc/ansible/hosts /usr/share/ansible/openshift-ansible/play
 ansible-playbook -i /etc/ansible/hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
 htpasswd -c -b /etc/origin/master/htpasswd ${AUSERNAME} ${PASSWORD}
 oc login -u ${AUSERNAME} -p ${PASSWORD} --insecure-skip-tls-verify -s ${RESOURCEGROUP}.${FULLDOMAIN}:8443
-oc new-project webappTest
-oc project webappTest
+oc new-project dukes --display-name="My first webapp called dukes" --description="This is a demo web project to test EAP on OCP"
