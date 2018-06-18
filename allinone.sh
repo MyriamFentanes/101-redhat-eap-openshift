@@ -101,4 +101,6 @@ htpasswd -c -b /etc/origin/master/htpasswd ${AUSERNAME} ${PASSWORD}
 oc login -u ${AUSERNAME} -p ${PASSWORD} --insecure-skip-tls-verify ${RESOURCEGROUP}.${FULLDOMAIN}:8443
 oc new-project dukes --display-name="My first webapp called dukes" --description="This is a demo web project to test EAP on OCP"
 oc new-app openshift/jboss-eap71-openshift:1.2~https://github.com/MyriamFentanes/dukes.git
+oc expose svc/dukes --hostname ""
+
 
