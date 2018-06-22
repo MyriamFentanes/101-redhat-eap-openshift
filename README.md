@@ -10,7 +10,7 @@
 
 ------
 
-This template deploys OpenShift Origin on Azure.
+This template deploys OpenShift Container Platform on Azure.
 
 ![Console](images/parameters.png)
 
@@ -19,16 +19,16 @@ This template deploys OpenShift Origin on Azure.
 Accept the default subscription ID value. Note: this field is not shown in the picture above.
 
 #### Resource Group
-Select "Create new" resource group if one does not currently exist. Enter "origin" or a name of your choosing in the input field.
+Select "Create new" resource group if one does not currently exist. Enter "ocp" or a name of your choosing in the input field.
 
 #### Location
-The geographic location in which to deploy OpenShift Origin.
+The geographic location in which to deploy OpenShift Container Platform.
 
 #### Admin User
-Supply a username which will be used for both SSH access and for the OpenShift Origin web console.
+Supply a username which will be used for both SSH access and for the OpenShift Container Platform web console.
 
 #### Admin Password
-Supply a password which will be used for the Origin web console.
+Supply a password which will be used for the Openshift Container Platform web console.
 
 #### Rhsm User
 Red Hat user name to be used for system registration.
@@ -43,11 +43,6 @@ Subscription pool to be used for the installation. This apha-numeric value can b
 You will need a SSH RSA public key for access if one currently does not exist on your system. Please supply your Public SSH key only. 
 For example, in Linux the key can be located at ~/.ssh/id_rsa.pub. Make sure to copy and paste the **ENTIRE** contents of the file ~/.ssh/id_rsa.pub into this input field.
 
-##### SSH Key Generation (Optional)
-
-1. [Windows](ssh_windows.md)
-2. [Linux](ssh_linux.md)
-3. [Mac](ssh_mac.md)
 
 #### Vm Size
 Specify a VM size. A default value is provided. If another size or type of vm is required ensure that the Location contains that instance type.
@@ -56,7 +51,7 @@ Once all of these values are set, then check the box to "Agree to the terms and 
 
 **Acknowledgements: Thanks to the following individuals for the base template: Daniel Falkner, Glenn West, Harold Wong, and Ivan McKinley**
 
-2. Deploy OpenShift Origin template to Azure
+2. Deploy OpenShift Openshift Container Platform template to Azure
 A notification will pop up in the top right notifying you of the deployment:
 
 <img src="https://github.com/cealsair/MicroProfileThorntailOnAzure/blob/master/images/12_OriginDeployInProgress.png" width="500">
@@ -84,3 +79,18 @@ At this point, copy the string from the "ORIGINCONSOLE" field, open a browser wi
 For Username and Password, the "Admin User" and "Admin Password" you supplied in the template above. Click on "Log In" and you should see:
 
 <img src="https://github.com/cealsair/MicroProfileThorntailOnAzure/blob/master/images/18_OpenShiftConsole.png" width="800">
+
+Once youlogin into the Openshift Console, you shoud have a preconfigured project listed on the right hand side of the console
+<img src="https://github.com/MyriamFentanes/101-redhat-eap-openshift/tree/8079368c003866d441663e2beee8d4c60b0f2d48/images/dukes_sample_app.png" width="800">
+
+Click on Applications, select Deployments and from the table on the right click on dukes,select the #1 Deployment and you will be able to see the number of instances/pods that are running of the application, status, creation date,configuration, etc.
+
+<img src="https://github.com/MyriamFentanes/101-redhat-eap-openshift/tree/8079368c003866d441663e2beee8d4c60b0f2d48/images/dukes_pod.png" width="800">
+
+To access the webapp go to Applicaitons and select Routes. Routes is the way Openshift Container Platform exposes services at a host name, you shoud see the url for dukes. CLick on it and goto the context dukes.
+
+<img src="https://github.com/MyriamFentanes/101-redhat-eap-openshift/tree/8079368c003866d441663e2beee8d4c60b0f2d48/images/dukes_route.png" width="800">
+
+You should see the webapp dukes. You have just installed Openshift Container Paltform, Red Hat Enterprise Application Paltform and a webapp called dukes. 
+
+<img src="https://github.com/MyriamFentanes/101-redhat-eap-openshift/tree/8079368c003866d441663e2beee8d4c60b0f2d48/images/dukes_hello_world.png" width="800">
